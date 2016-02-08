@@ -22,11 +22,33 @@ class BusinessTableViewCell: UITableViewCell {
     var business: Business! {
         didSet {
             businessLabel.text = business.name
-            thumbImageView.setImageWithURL(business.imageURL!)
+            safeSetImageWithURL(thumbImageView, imagePath: business.imageURL)
             kindLabel.text = business.categories
             addressLabel.text = business.address
             reviewLabel.text = "\(business.reviewCount!) Reviews"
+            distanceLabel.text = business.distance
             ratingImageView.setImageWithURL(business.ratingImageURL!)
+        }
+    }
+    
+    func safeSetImageWithURL(imageView: UIImageView, imagePath: NSURL?) {
+        if imagePath != nil {
+            imageView.setImageWithURLRequest(NSURLRequest(URL: imagePath!), placeholderImage: nil, success: { (imageRequest, imageResponse, image) -> Void in
+                if imageResponse != nil {
+                    imageView.alpha = 0
+                    imageView.image = image
+                    UIView.animateWithDuration(0.25, animations: { () -> Void in
+                        imageView.alpha = 1
+                    })
+                }
+                else {
+                    imageView.image = image
+                }
+                }, failure: { (imageRequest, imageResponse, imageError) -> Void in
+            })
+        }
+        else {
+            // set placeholder
         }
     }
 
@@ -39,7 +61,6 @@ class BusinessTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

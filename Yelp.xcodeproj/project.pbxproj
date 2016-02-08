@@ -17,6 +17,11 @@
 		22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAAA9B1AEA1EC300A544AF /* BusinessesViewController.swift */; };
 		90B718C590BD546DEFEF0D61 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C5CF4FD317D72ABE2AAC4 /* Pods.framework */; };
 		F51D4BE71C61EDD2000795C2 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BE61C61EDD2000795C2 /* BusinessTableViewCell.swift */; };
+		F51D4BEA1C628C5B000795C2 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BE91C628C5A000795C2 /* SwitchTableViewCell.swift */; };
+		F51D4BEC1C628F70000795C2 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BEB1C628F70000795C2 /* FiltersViewController.swift */; };
+		F51D4BEE1C653846000795C2 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BED1C653845000795C2 /* InfiniteScrollActivityView.swift */; };
+		F51D4BF01C67AAA7000795C2 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BEF1C67AAA6000795C2 /* BusinessDetailViewController.swift */; };
+		F51D4BF41C683115000795C2 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D4BF31C683115000795C2 /* ActionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		BBD540129B10DFE60E8C24E2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F51D4BE51C618E8D000795C2 /* 223000134_HW1_part2.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = 223000134_HW1_part2.py; path = ../../../470/223000134_HW1_part2.py; sourceTree = "<group>"; };
 		F51D4BE61C61EDD2000795C2 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		F51D4BE91C628C5A000795C2 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		F51D4BEB1C628F70000795C2 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		F51D4BED1C653845000795C2 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
+		F51D4BEF1C67AAA6000795C2 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
+		F51D4BF31C683115000795C2 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +159,8 @@
 		22AAAA9D1AEA1EC600A544AF /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F51D4BEF1C67AAA6000795C2 /* BusinessDetailViewController.swift */,
+				F51D4BEB1C628F70000795C2 /* FiltersViewController.swift */,
 				22AAAA9B1AEA1EC300A544AF /* BusinessesViewController.swift */,
 			);
 			name = "View Controllers";
@@ -174,6 +186,9 @@
 		F51D4BE81C61EDE7000795C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F51D4BF31C683115000795C2 /* ActionCell.swift */,
+				F51D4BED1C653845000795C2 /* InfiniteScrollActivityView.swift */,
+				F51D4BE91C628C5A000795C2 /* SwitchTableViewCell.swift */,
 				F51D4BE61C61EDD2000795C2 /* BusinessTableViewCell.swift */,
 			);
 			name = Views;
@@ -332,7 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51D4BF01C67AAA7000795C2 /* BusinessDetailViewController.swift in Sources */,
+				F51D4BF41C683115000795C2 /* ActionCell.swift in Sources */,
+				F51D4BEE1C653846000795C2 /* InfiniteScrollActivityView.swift in Sources */,
 				F51D4BE71C61EDD2000795C2 /* BusinessTableViewCell.swift in Sources */,
+				F51D4BEA1C628C5B000795C2 /* SwitchTableViewCell.swift in Sources */,
+				F51D4BEC1C628F70000795C2 /* FiltersViewController.swift in Sources */,
 				22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */,
 				22AAAA991AEA0A9700A544AF /* Business.swift in Sources */,
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,

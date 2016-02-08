@@ -16,6 +16,12 @@ class Business: NSObject {
     let distance: String?
     let ratingImageURL: NSURL?
     let reviewCount: NSNumber?
+    let latitude: NSNumber?
+    let longitude: NSNumber?
+    let formattedAddress: String?
+    let snippet: String?
+    let phone: String?
+    let mobileUrl: String?
     
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
@@ -29,11 +35,32 @@ class Business: NSObject {
         
         let location = dictionary["location"] as? NSDictionary
         var address = ""
+        var formattedAddress = ""
+        var latitude = NSNumber()
+        var longitude = NSNumber()
+        
         if location != nil {
             let addressArray = location!["address"] as? NSArray
             if addressArray != nil && addressArray!.count > 0 {
                 address = addressArray![0] as! String
             }
+            
+            let coordinate = location!["coordinate"] as? NSDictionary
+            if coordinate != nil{
+                latitude = (coordinate!["latitude"] as? NSNumber)!
+                longitude = (coordinate!["longitude"] as? NSNumber)!
+            }
+            
+            let formattedAddressArray = location!["display_address"] as? NSArray
+            if formattedAddressArray != nil && formattedAddressArray!.count > 0 {
+                if formattedAddress != " " {
+                    formattedAddress += ", "
+                }
+                for s in formattedAddressArray!{
+                    formattedAddress += (s as! String + "\n")
+                }
+            }
+            formattedAddress.removeAtIndex(formattedAddress.endIndex.predecessor())
             
             let neighborhoods = location!["neighborhoods"] as? NSArray
             if neighborhoods != nil && neighborhoods!.count > 0 {
@@ -44,6 +71,9 @@ class Business: NSObject {
             }
         }
         self.address = address
+        self.formattedAddress = formattedAddress
+        self.latitude = latitude
+        self.longitude = longitude
         
         let categoriesArray = dictionary["categories"] as? [[String]]
         if categoriesArray != nil {
@@ -73,6 +103,9 @@ class Business: NSObject {
         }
         
         reviewCount = dictionary["review_count"] as? NSNumber
+        phone = dictionary["display_phone"] as? String
+        snippet = dictionary["snippet_text"] as? String
+        mobileUrl = dictionary["mobile_url"] as? String
     }
     
     class func businesses(array array: [NSDictionary]) -> [Business] {
@@ -88,7 +121,7 @@ class Business: NSObject {
         YelpClient.sharedInstance.searchWithTerm(term, completion: completion)
     }
     
-    class func searchWithTerm(term: String, sort: YelpSortMode?, categories: [String]?, deals: Bool?, completion: ([Business]!, NSError!) -> Void) -> Void {
-        YelpClient.sharedInstance.searchWithTerm(term, sort: sort, categories: categories, deals: deals, completion: completion)
+    class func searchWithTerm(offset: Int, term: String, sort: YelpSortMode?, categories: [String]?, deals: Bool?, completion: ([Business]!, NSError!) -> Void) -> Void {
+        YelpClient.sharedInstance.searchWithTerm(offset, term: term, sort: sort, categories: categories, deals: deals, completion: completion)
     }
 }
