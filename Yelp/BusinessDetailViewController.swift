@@ -29,6 +29,8 @@ class BusinessDetailViewController: UIViewController, CLLocationManagerDelegate,
         tableView.dataSource = self
         tableView.delegate = self
         
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        
         navigationController!.navigationBar.topItem!.title = business.name
         
         actionNames = [["Get Directions", "functionName"], ["Call", "function"], ["Visit Website", "function"]]
@@ -78,7 +80,6 @@ class BusinessDetailViewController: UIViewController, CLLocationManagerDelegate,
         let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell") as! ActionCell
         cell.actionNameLabel.text = actionNames[indexPath.row][0]
         print(actionNames[indexPath.row][0])
-        // cell.actionDetailLabel.text = actionNames[indexPath.row][1] decided against
         return cell
     }
     
@@ -97,7 +98,14 @@ class BusinessDetailViewController: UIViewController, CLLocationManagerDelegate,
         case 1: //call
             if business.phone != nil {
                 let url: NSURL = NSURL(string: "tel://"+business.phone!)!
-                UIApplication.sharedApplication().openURL(url)
+                if UIApplication.sharedApplication().canOpenURL(url) {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+                else {
+                    let alert: UIAlertView = UIAlertView(title: "No Call Functionality Available", message: "Sorry about that.", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "")
+                    alert.show()
+                }
+                
             }
             else {
                 let alert: UIAlertView = UIAlertView(title: "No Phone Number Provided", message: "Sorry about that.", delegate: self, cancelButtonTitle: "OK", otherButtonTitles: "")

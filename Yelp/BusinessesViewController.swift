@@ -79,6 +79,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchController.searchBar.sizeToFit()
         navigationItem.titleView = searchController.searchBar
         
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName
             : UIColor.whiteColor()], forState: .Normal)
 
