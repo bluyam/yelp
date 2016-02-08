@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. Really wanted to implement a favorites page - know how to do it but I had a busy week.
-2. Facebook integration?
+2. Modify the code so that filters persist between modal transitions.
 
 ## Video Walkthrough 
 
