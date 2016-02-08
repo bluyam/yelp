@@ -1,4 +1,4 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Yelp*
 
 **Yelp** is a venue-searching app which uses the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
